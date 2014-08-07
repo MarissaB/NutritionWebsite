@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NutritionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodList">
+          <Key>
+            <PropertyRef Name="NDB_Number" />
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="NDB_Number" Type="int" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="SelectedUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Measure" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="NDB_Number" />
+          </Key>
+          <Property Name="NDB_Number" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="60" />
+          <Property Name="Water" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Calories (kcal)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Protein" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Total fat" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Ash" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Carbohydrate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Fiber" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sugars" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Calcium" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Iron" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Magnesium" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Phosphorus" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Potassium" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sodium" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Zinc" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Copper" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Manganese" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Selenium" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin C" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Thiamin" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Riboflavin" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Niacin" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Pantothenic acid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin B6" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Total folate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Folic acid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Food folate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Folate (ug)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Choline" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin B12" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin A (IU)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin A (ug)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Retinol" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Alpha carotene" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Beta carotene" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Beta cryptoxanthin" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Lycopene" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Lutein zeazanthin" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin E" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin D (ug)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin D (IU)" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Vitamin K" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Saturated fat" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Mono fat" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Poly fat" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Cholesterol" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Weight1" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Weight1 Description" Type="varchar" MaxLength="120" />
+          <Property Name="Weight2" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Weight2 Description" Type="varchar" MaxLength="120" />
+          <Property Name="Percent refuse" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Servings" Type="int" Nullable="false" />
+          <Property Name="Instructions" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_FoodList_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="1" />
+          <End Role="FoodList" Type="Self.FoodList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="NDB_Number" />
+            </Principal>
+            <Dependent Role="FoodList">
+              <PropertyRef Name="NDB_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodList_Recipes">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="FoodList" Type="Self.FoodList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="FoodList">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Recipes">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NutritionModelStoreContainer">
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodList" EntityType="Self.FoodList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FoodList_Ingredients" Association="Self.FK_FoodList_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="FoodList" EntitySet="FoodList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodList_Recipes" Association="Self.FK_FoodList_Recipes">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="FoodList" EntitySet="FoodList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Recipes" Association="Self.FK_Users_Recipes">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NutritionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_Users_Recipes" FromRole="aspnet_Users" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="FoodList">
+          <Key>
+            <PropertyRef Name="NDB_Number" />
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="NDB_Number" Type="Int32" Nullable="false" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="SelectedUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Measure" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.FK_FoodList_Ingredients" FromRole="FoodList" ToRole="Ingredients" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_FoodList_Recipes" FromRole="FoodList" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="NDB_Number" />
+          </Key>
+          <Property Name="NDB_Number" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Water" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Calories__kcal_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Protein" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total_fat" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Ash" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Carbohydrate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fiber" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sugars" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Calcium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Iron" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Magnesium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Phosphorus" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Potassium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sodium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Zinc" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Copper" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Manganese" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Selenium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_C" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Thiamin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Riboflavin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Niacin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Pantothenic_acid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_B6" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total_folate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Folic_acid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Food_folate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Folate__ug_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Choline" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_B12" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_A__IU_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_A__ug_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Retinol" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Alpha_carotene" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Beta_carotene" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Beta_cryptoxanthin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Lycopene" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Lutein_zeazanthin" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_E" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_D__ug_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_D__IU_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Vitamin_K" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Saturated_fat" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mono_fat" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Poly_fat" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cholesterol" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Weight1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Weight1_Description" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Weight2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Weight2_Description" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Percent_refuse" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="FoodLists" Relationship="Self.FK_FoodList_Ingredients" FromRole="Ingredients" ToRole="FoodList" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Servings" Type="Int32" Nullable="false" />
+          <Property Name="Instructions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Users_Recipes" FromRole="Recipes" ToRole="aspnet_Users" />
+          <NavigationProperty Name="FoodLists" Relationship="Self.FK_FoodList_Recipes" FromRole="Recipes" ToRole="FoodList" />
+        </EntityType>
+        <Association Name="FK_Users_Recipes">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodList_Ingredients">
+          <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="FoodList" Type="Self.FoodList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="NDB_Number" />
+            </Principal>
+            <Dependent Role="FoodList">
+              <PropertyRef Name="NDB_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodList_Recipes">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="FoodList" Type="Self.FoodList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="FoodList">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NutritionEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
+          <EntitySet Name="FoodLists" EntityType="Self.FoodList" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+          <AssociationSet Name="FK_Users_Recipes" Association="Self.FK_Users_Recipes">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodList_Ingredients" Association="Self.FK_FoodList_Ingredients">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="FoodList" EntitySet="FoodLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodList_Recipes" Association="Self.FK_FoodList_Recipes">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="FoodList" EntitySet="FoodLists" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NutritionModelStoreContainer" CdmEntityContainer="NutritionEntities4">
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="NutritionModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodLists">
+            <EntityTypeMapping TypeName="NutritionModel.FoodList">
+              <MappingFragment StoreEntitySet="FoodList">
+                <ScalarProperty Name="NDB_Number" ColumnName="NDB_Number" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="SelectedUnit" ColumnName="SelectedUnit" />
+                <ScalarProperty Name="Measure" ColumnName="Measure" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="NutritionModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredients">
+                <ScalarProperty Name="NDB_Number" ColumnName="NDB_Number" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Water" ColumnName="Water" />
+                <ScalarProperty Name="Calories__kcal_" ColumnName="Calories (kcal)" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="Total_fat" ColumnName="Total fat" />
+                <ScalarProperty Name="Ash" ColumnName="Ash" />
+                <ScalarProperty Name="Carbohydrate" ColumnName="Carbohydrate" />
+                <ScalarProperty Name="Fiber" ColumnName="Fiber" />
+                <ScalarProperty Name="Sugars" ColumnName="Sugars" />
+                <ScalarProperty Name="Calcium" ColumnName="Calcium" />
+                <ScalarProperty Name="Iron" ColumnName="Iron" />
+                <ScalarProperty Name="Magnesium" ColumnName="Magnesium" />
+                <ScalarProperty Name="Phosphorus" ColumnName="Phosphorus" />
+                <ScalarProperty Name="Potassium" ColumnName="Potassium" />
+                <ScalarProperty Name="Sodium" ColumnName="Sodium" />
+                <ScalarProperty Name="Zinc" ColumnName="Zinc" />
+                <ScalarProperty Name="Copper" ColumnName="Copper" />
+                <ScalarProperty Name="Manganese" ColumnName="Manganese" />
+                <ScalarProperty Name="Selenium" ColumnName="Selenium" />
+                <ScalarProperty Name="Vitamin_C" ColumnName="Vitamin C" />
+                <ScalarProperty Name="Thiamin" ColumnName="Thiamin" />
+                <ScalarProperty Name="Riboflavin" ColumnName="Riboflavin" />
+                <ScalarProperty Name="Niacin" ColumnName="Niacin" />
+                <ScalarProperty Name="Pantothenic_acid" ColumnName="Pantothenic acid" />
+                <ScalarProperty Name="Vitamin_B6" ColumnName="Vitamin B6" />
+                <ScalarProperty Name="Total_folate" ColumnName="Total folate" />
+                <ScalarProperty Name="Folic_acid" ColumnName="Folic acid" />
+                <ScalarProperty Name="Food_folate" ColumnName="Food folate" />
+                <ScalarProperty Name="Folate__ug_" ColumnName="Folate (ug)" />
+                <ScalarProperty Name="Choline" ColumnName="Choline" />
+                <ScalarProperty Name="Vitamin_B12" ColumnName="Vitamin B12" />
+                <ScalarProperty Name="Vitamin_A__IU_" ColumnName="Vitamin A (IU)" />
+                <ScalarProperty Name="Vitamin_A__ug_" ColumnName="Vitamin A (ug)" />
+                <ScalarProperty Name="Retinol" ColumnName="Retinol" />
+                <ScalarProperty Name="Alpha_carotene" ColumnName="Alpha carotene" />
+                <ScalarProperty Name="Beta_carotene" ColumnName="Beta carotene" />
+                <ScalarProperty Name="Beta_cryptoxanthin" ColumnName="Beta cryptoxanthin" />
+                <ScalarProperty Name="Lycopene" ColumnName="Lycopene" />
+                <ScalarProperty Name="Lutein_zeazanthin" ColumnName="Lutein zeazanthin" />
+                <ScalarProperty Name="Vitamin_E" ColumnName="Vitamin E" />
+                <ScalarProperty Name="Vitamin_D__ug_" ColumnName="Vitamin D (ug)" />
+                <ScalarProperty Name="Vitamin_D__IU_" ColumnName="Vitamin D (IU)" />
+                <ScalarProperty Name="Vitamin_K" ColumnName="Vitamin K" />
+                <ScalarProperty Name="Saturated_fat" ColumnName="Saturated fat" />
+                <ScalarProperty Name="Mono_fat" ColumnName="Mono fat" />
+                <ScalarProperty Name="Poly_fat" ColumnName="Poly fat" />
+                <ScalarProperty Name="Cholesterol" ColumnName="Cholesterol" />
+                <ScalarProperty Name="Weight1" ColumnName="Weight1" />
+                <ScalarProperty Name="Weight1_Description" ColumnName="Weight1 Description" />
+                <ScalarProperty Name="Weight2" ColumnName="Weight2" />
+                <ScalarProperty Name="Weight2_Description" ColumnName="Weight2 Description" />
+                <ScalarProperty Name="Percent_refuse" ColumnName="Percent refuse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="NutritionModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Servings" ColumnName="Servings" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
