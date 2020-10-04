@@ -1,4 +1,4 @@
-﻿Recipe Analyzer - Marissa Berresford
+﻿Recipe Analyzer - Marissa Berresford -amazing project
 Current Status: 2 May 2014
 
 - Users cannot save changes to an existing recipe
